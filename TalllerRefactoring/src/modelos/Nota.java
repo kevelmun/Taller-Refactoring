@@ -15,7 +15,8 @@ public class Nota {
     private double nlecciones;
     private double ntalleres;
     private double valor;
-
+    private double constantePractica=0.20;
+    private double constanteTeorica=0.80;
     public double getNexamen() {
         return nexamen;
     }
@@ -56,16 +57,32 @@ public class Nota {
         this.valor = valor;
     }
 
+    public double getConstantePractica() {
+        return constantePractica;
+    }
+
+    public void setConstantePractica(double constantePractica) {
+        this.constantePractica = constantePractica;
+    }
+
+    public double getConstanteTeorica() {
+        return constanteTeorica;
+    }
+
+    public void setConstanteTeorica(double constanteTeorica) {
+        this.constanteTeorica = constanteTeorica;
+    }
+    
     public Nota() {
         valor = 0;
     } 
  
-    //Calcula y devuelve la nota contando examen, deberes, lecciones y talleres. El teorico y el practico se calcula por parcial.
+
     public double CalcularNota(Estudiante e, Paralelo p){
         for(Paralelo par:e.getParalelos()){
             if(p.equals(par)){
-                double notaTeorico=(nexamen+ndeberes+nlecciones)*0.80;
-                double notaPractico=(ntalleres)*0.20;
+                double notaTeorico=(nexamen+ndeberes+nlecciones)*constanteTeorica;
+                double notaPractico=(ntalleres)*constantePractica;
                 valor=notaTeorico+notaPractico;
             }
         }

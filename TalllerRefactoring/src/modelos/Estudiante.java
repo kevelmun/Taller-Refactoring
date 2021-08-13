@@ -2,7 +2,6 @@ package modelos;
 
 
 public class Estudiante extends Persona{
-    //Informacion del estudiante
     private String matricula;
     private String facultad;
     private Nota notaInicial;
@@ -29,7 +28,7 @@ public class Estudiante extends Persona{
     }
     
     
-    //Calcula y devuelve la nota inicial contando examen, deberes, lecciones y talleres. Esta nota es solo el promedio de las dos calificaciones anteriores.
+
     public double CalcularNotaTotal(Paralelo p){
         return (notaInicial.getValor()+notaFinal.getValor())/2;
         
